@@ -1,0 +1,38 @@
+<div class="container" *ngIf="isLoaded">
+  <!--  simple header-->
+  <div class="header">
+    <img
+      src="https://unibank.az/assets/images/logonew-orange1.png"
+      alt="logo"
+      class="logo"
+    />
+    <h1 class="title">COVID-19 Tracker</h1>
+  </div>
+  <!--  body starts-->
+  <mat-grid-list cols="5" rowHeight="2:1" [gutterSize]="'5px'">
+    <mat-grid-tile [colspan]="3" [rowspan]="2">
+      <!-- component to show data using charts-->
+      <app-country-chart [sourceData]="sourceData"></app-country-chart>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="6">
+      <!-- component to show data via table-->
+      <app-country-map [sourceData]="sourceData"></app-country-map>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" [rowspan]="5">
+      <!-- could be highcharts of world map, didnt have enough time:) -->
+      <app-country-list [sourceData]="sourceData"></app-country-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!--  body ends-->
+  <!--  simple footer-->
+  <div class="ftr_bottom">
+    <p>Copyright 2022 © All Rights Reserved.</p>
+  </div>
+</div>
+<!--show loading spinner until data loaded from server-->
+<div *ngIf="!isLoaded">
+  <div class="spinner_loading">
+    <mat-progress-spinner diameter="60" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</div>

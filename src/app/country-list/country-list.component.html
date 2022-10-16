@@ -1,0 +1,13 @@
+<div class="row">
+  <ngx-datatable
+    class="material"
+    [rows]="sourceData"
+    [columns]="columns"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [limit]="10"
+    (activate)="onActivate($event)"
+  >
+  </ngx-datatable>
+</div>
